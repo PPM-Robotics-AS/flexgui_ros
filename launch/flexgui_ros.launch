@@ -1,0 +1,7 @@
+<launch>
+  <node pkg="flexgui_ros" type="roslibjs_extensions.py" name="roslibjs_extensions"/>
+
+  <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" > 
+    <arg name="port" value="9090"/>
+  </include>
+</launch>
