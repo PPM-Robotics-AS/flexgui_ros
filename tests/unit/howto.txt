@@ -1,0 +1,9 @@
+# How to run tests?
+
+# Press Start button, then type   cmd
+# Type following lines in command prompt
+cd /
+# <FlexGui trunk's directory> is your custom directory of FlexGui
+cd <FlexGui trunk's directory>
+cd CordovaTest/tests/unit
+karma start

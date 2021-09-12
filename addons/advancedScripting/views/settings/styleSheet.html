@@ -1,0 +1,19 @@
+﻿<i>{{localization.currentLocal.settings.tabs.styleSheet.note}}</i>
+
+<div ng-controller="scriptEditorController" ng-click="scrollBottom()"
+     class="scriptEditor"
+     ng-class="{ 'fullscreen': isFullscreen }"
+     ng-style="isFullscreen ? editorStyle : {}"
+     style="text-align: right; margin-right: 40px;"
+     id="{{id}}">
+    <div class="editorContainer" style="height: 380px;">
+        <textarea class="form-control" ui-ace="{
+                          useWrapMode : true,
+                          mode: 'css',
+                          firstLineNumber: 1,
+                          onLoad: aceLoaded,
+                          onChange: styleEdited,
+                          useWorker: false
+                        }" ng-model="project.styleSheet"></textarea>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+﻿<div class="slam"
+     ng-controller="slamMapCtrl"
+     ng-click="onClick(fidget, $event)"
+     ng-init="initMapFidget(fidget)"
+     style="width: {{fidget.properties.width}}px; height: {{fidget.properties.height}}px;"
+     ng-class="{ 'loading': !loaded }">
+
+    <img ng-hide="loaded"
+         ng-src="{{slamLogo}}" style="width: 120px; height: 120px; margin-top: {{fidget.properties.height / 2 - 60}}px; margin-left: {{fidget.properties.width / 2 - 60}}px" />
+
+    <canvas id="slamCanvas_{{fidget.id}}" width="{{fidget.properties.width}}px" height="{{fidget.properties.height}}px"></canvas>
+
+    <div ng-show="fidget.properties.isCalibrationOn && !editHandler.isEditMode && loaded"
+         style="position: absolute ;left: 0; top: 0; height: 30px; width: {{fidget.properties.width}}px; background-color: rgba(30,30,30,0.4); padding-left: 10px;">
+
+        <span style="line-height: 30px;">Calibrating...</span>
+        <span style="line-height: 30px; color: red;" ng-show="recorded">Recorded</span>
+    </div>
+</div>
+
+<style>
+    .loading {
+        border: 2px solid white;
+
+    }
+</style>

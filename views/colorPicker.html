@@ -1,0 +1,11 @@
+﻿<ng-include src="'views/helpIcon.html'" class="floatRight" ng-init="help = helpMessages.colorPick" ng-if="helpMessages.show"></ng-include>
+
+<div class="color"
+     ng-repeat="color in ::colorPickerHandler.colors"
+     ng-click="colorPickerHandler.setSelectedColor(color)"
+     hm-tap="colorPickerHandler.setSelectedColor(color)"
+     style="border-color: {{colorPickerHandler.selectedColor == color ? color : 'transparent'}}">
+    <div style="background-color: {{color}};">
+
+    </div>
+</div>

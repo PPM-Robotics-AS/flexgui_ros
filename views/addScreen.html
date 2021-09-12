@@ -1,0 +1,28 @@
+﻿<div id="addScreenModal" 
+     class="modal nontransparent" 
+     data-backdrop="static"
+     data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+
+                <h3>{{::localization.currentLocal.general.selectScreenType}}</h3>
+
+                <button class="btn btn-default" style="background-image: url({{screenType.icon}});" ng-repeat="screenType in project.screenTypes track by $index" ng-click="screenType.action()">
+                    <div>
+                        <h4>
+                            {{screenType.title}}
+                        </h4>
+                    </div>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-100" ng-click="project.showAddScreen(false)">{{::localization.currentLocal.buttons.cancel}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $("#addScreenModal").modal("show");
+</script>

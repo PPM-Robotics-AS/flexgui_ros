@@ -1,0 +1,10 @@
+﻿<ng-include ng-repeat="modal in modals" src="modal.src" ng-if="modal.visible"></ng-include>
+
+<!--Help window-->
+<ng-include src="'views/helpMessage.html'" ng-if="helpMessages.open != null"></ng-include>
+
+<!--PopupMessage window-->
+<ng-include src="'views/popupMessage.html'" ng-if="popup.visible"></ng-include>
+
+<!--BlockUI window-->
+<ng-include src="'views/blockUI.html'" ng-if="blockMessage != null"></ng-include>

@@ -1,0 +1,28 @@
+﻿<perfect-scrollbar class="scroller interfaceRepeaterScrollBar scrollTop perfectScrollBar" wheel-propagation="true" wheel-speed="1">
+    <input type="hidden" ng-model="search.isTopic" value="true" />
+    <table class="interfacesTable">
+        <thead>
+            <tr ng-include="settings.interfaces.header"></tr>
+        </thead>
+
+        <tr class="panel-heading" data-toggle="collapse" data-target="#topics">
+            <td colspan="6">
+                <label>Topics</label>
+            </td>
+        </tr>
+
+        <tbody id="topics" class="panel-collapse collapse in">
+            <tr ng-repeat="interface in settings.shownInterfaces() | isTopicFilter:true | orderBy: 'path'" scroll-top-on-refresh ng-include="settings.interfaces.item" />
+        </tbody>
+
+        <tr class="panel-heading" data-toggle="collapse" data-target="#services">
+            <td colspan="6">
+                <label>Services</label>
+            </td>
+        </tr>
+
+        <tbody id="services" class="panel-collapse collapse in">
+            <tr ng-repeat="interface in settings.shownInterfaces() | isTopicFilter:false | orderBy: 'path'" scroll-top-on-refresh ng-include="settings.interfaces.item" />
+        </tbody>
+    </table>
+</perfect-scrollbar>

@@ -1,0 +1,56 @@
+﻿<table class="diagnostics">
+    <thead>
+        <tr>
+            <th>
+                {{::localization.currentLocal.diagnostics.selected}}
+            </th>
+            <th>
+                {{::localization.currentLocal.diagnostics.name}}
+            </th>
+            <th>
+                {{::localization.currentLocal.diagnostics.params}}
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+</table>
+
+<perfect-scrollbar class="scroller interfaceRepeaterScrollBar scrollTop perfectScrollBar" wheel-propagation="true" wheel-speed="1" style="height: 600px;">
+    <table class="diagnostics table-striped">
+        <tbody>
+            <tr class="diagnosticItem" ng-if="!project.testSequence || project.testSequence.length == 0">
+                <td colspan="4">0 tests defined</td>
+            </tr>
+            <tr ng-repeat="test in project.testSequence track by test.id" class="diagnosticItem">
+                <td>
+                    <div class="checkbox">
+                        <input type="checkbox" ng-model="test.selected" id="selected_{{test.id}}">
+                        <label for="selected_{{test.id}}"></label>
+                    </div>
+                </td>
+                <td>
+                    <span ng-if="!test.isUserDefined">{{::localization.currentLocal.diagnostics.tests[test.name].name}}</span>
+                    <span ng-if="test.isUserDefined">{{test.name}}</span>
+                </td>
+                <td>
+                    <span ng-if="!test.isUserDefined">{{test.params}}</span>
+                </td>
+                <td>
+                    <span class="testAction glyphicon glyphicon-remove" ng-click="diagnostics.removeTestItem(test)"></span>
+                    <span ng-class="{'disabled': test == project.testSequence[0] }" ng-click="diagnostics.move(test, -1)" class="testAction glyphicon glyphicon-chevron-up"></span>
+                    <span ng-class="{'disabled': test == project.testSequence[project.testSequence.length - 1] }" ng-click="testActiondiagnostics.move(test, 1)" class="testAction glyphicon glyphicon-chevron-down"></span>
+                    <span class="testAction glyphicon glyphicon-pencil" ng-click="diagnostics.editTestItem(test)"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</perfect-scrollbar>
+
+<div class="diagnosticsButtons">
+    <button ng-click="diagnostics.addTestItem()" class="btn btn-default btn-100">Add new</button>
+    <button ng-click="diagnostics.selectAll()" class="btn btn-default btn-100">Select all</button>
+    <button class="btn btn-default btn-100" ng-click="diagnostics.setResultVisible(true);" ng-disabled="project.testSequence.length == 0">Run test</button>
+</div>
+
+

@@ -1,0 +1,21 @@
+﻿<div ng-style="style.div"
+     ng-controller="imageCtrl"
+     ng-init="initRotate();initImage(fidget)"
+     ng-click="onClick(fidget, $event)">
+
+    <div class="image" ng-style="style.imageContainer">
+
+        <div class="{{fidget.properties.scale}}"
+             ng-style="style.image">
+            <img src="{{fidget.properties.value}}"
+                 style="display: none"
+                 onload="if (this.parentNode.className.indexOf('imageNotFound') != -1) { var originalClass = this.parentNode.className.substring(0, this.parentNode.className.indexOf(' ')); this.parentNode.className = originalClass; }"
+                 onerror="if (this.parentNode.className.indexOf('imageNotFound') == -1) this.parentNode.className += ' imageNotFound';" />
+        </div>
+
+        <div class="overlayer">
+
+        </div>
+
+    </div>
+</div>

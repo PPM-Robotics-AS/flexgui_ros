@@ -1,0 +1,8 @@
+﻿<div ng-click="onClick(fidget, $event)"
+     ng-controller="inputCtrl"
+     ng-init="initInput(fidget)">
+    <input ng-style="style" ng-if="fidget.properties.type != 'multi'" type="{{fidget.properties.type || 'text'}}" class="form-control" ng-model="value" />
+    <textarea ng-style="style" ng-if="fidget.properties.type === 'multi'" class="form-control" ng-model="value">
+
+    </textarea>
+</div>

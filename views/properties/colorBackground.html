@@ -1,0 +1,9 @@
+﻿<td><label>{{::localization.currentLocal.fidgets.properties.backgroundColor}}</label></td>
+<td>
+    <input type="text" name="backgroundColor"
+           class="form-control"
+           ng-class="{'form-control-66': p.toLowerCase().indexOf('color') != -1 || (editHandler.editedFidget.source == 'image' && p == '_value') }"
+           ng-model="editHandler.editedFidget.backgroundColor">
+    <div style="background-color: {{editHandler.editedFidget.backgroundColor}}" class="colorMark"></div>
+    <button class="btn btn-default col-md-4" ng-click="openBackgroundColorPicker(editHandler.editedFidget.backgroundColor)">{{::localization.currentLocal.buttons.pick}}</button>
+</td>

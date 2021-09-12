@@ -1,0 +1,25 @@
+﻿<div ng-style="style.div" 
+     ng-init="initIndicatorLamp(fidget)"
+     class="indicatorLamp" 
+     ng-click="onClick(fidget, $event)">
+    
+    <style ng-if="fidget.properties.blinking == true">
+        #{{fidget.id}} .blinking {
+            -webkit-animation-duration: {{1 / fidget.properties.blinkFrequency}}s;
+        }
+
+        @-webkit-keyframes blinker {  
+            0% { opacity: {{1 / fidget.properties.blinkFrequency}}; }
+            50% { opacity: 0.0; }
+            100% { opacity: {{1 / fidget.properties.blinkFrequency}}; }
+        }
+    </style>
+
+    <div ng-style="style.lampContainer">
+        <div class="lamp" ng-style="style.lamp">
+            <div ng-class="{'blinking': fidget.properties.blinking == true }" class="blink_me bulb" ng-style="style.bulb"></div>
+        </div>
+    </div>
+    <div ng-style="style.text" ng-bind-html="fidget.properties.text">
+    </div>
+</div>

@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html ng-app="flexGuiApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=0.2, maximum-scale=2">-->
+    <meta name="viewport" content="width=device-width">
+    <title>FlexGui 4.0</title>
+    <link rel="stylesheet" href="styles/flexGui.css">
+    <link rel="stylesheet" href="styles/3rdParty/jquery-ui.css">
+    <link rel="stylesheet" href="styles/3rdParty/perfect-scrollbar.min.css" />
+    <link rel="stylesheet" href="styles/3rdParty/font-awesome.css" />
+    <link rel="stylesheet" href="styles/3rdParty/awesome-bootstrap-checkbox.css" />
+    <link rel="stylesheet" href="styles/3rdParty/codemirror.css" />
+    <link rel="stylesheet" href="styles/3rdParty/bootstrap-slider.css" />
+    <link rel="stylesheet" href="styles/3rdParty/bootstrap.min.css">
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    
+    <script>
+    less = {
+        env: "release"
+    };
+    </script>
+
+    <!--3rd party libs-->
+    <script src="scripts/3rdParty/jquery.min.js"></script>
+    <script src="scripts/3rdParty/jquery-ui.min.js"></script>
+    <script src="scripts/3rdParty/jquery.knob.js"></script>
+    <script src="scripts/3rdParty/canvas_resize.js"></script>
+    <script src="scripts/3rdParty/html2canvas.js"></script>
+    <script src="scripts/3rdParty/angular.min.js"></script>
+    <script src="scripts/3rdParty/angular-sanitize.js"></script>
+    <script src="scripts/3rdParty/angular-cookies.js"></script>
+    <script src="scripts/3rdParty/bootstrap.min.js"></script>
+    <script src="scripts/3rdParty/angular-route.min.js"></script>
+    <script src="scripts/3rdParty/hammer.min.js"></script>
+    <script src="scripts/3rdParty/angular.hammer.js"></script>
+    <script src="scripts/3rdParty/jquery.nicescroll.min.js"></script>
+    <script src="scripts/3rdParty/jquery.timeago.min.js"></script>
+    <script src="scripts/3rdParty/bootstrap-slider.js"></script>
+    <script src="scripts/3rdParty/slider.js"></script>
+    <script src="scripts/3rdParty/less.min.js"></script>
+    <script src="scripts/3rdParty/bootbox.min.js"></script>
+    <script src="scripts/3rdParty/perfect-scrollbar.min.js"></script>
+    <!--<script src="scripts/3rdParty/perfect-scrollbar.with-mousewheel.min.js"></script>-->
+    <script src="scripts/3rdParty/angular-perfect-scrollbar.js"></script>
+    <script src="scripts/3rdParty/ng-stats.js"></script>
+    <script type="text/javascript" src="scripts/3rdParty/angular-ui-router.js"></script>
+    <script type="text/javascript" src="scripts/3rdParty/script.min.js"></script>
+    <script src="scripts/3rdParty/ocLazyLoad.js"></script>
+    <script src="scripts/3rdParty/memory-stats.js"></script>
+    <script src="scripts/3rdParty/array-find.js"></script>
+    <script src="scripts/3rdParty/lodash.js"></script>
+
+    <!--roslibjs-->
+    <script type="text/javascript" src="scripts/3rdParty/eventemitter2.js"></script>
+    <script type="text/javascript" src="scripts/3rdParty/roslib.js"></script>
+
+    <!--Own code-->
+    <script src="scripts/angular-knob.js"></script>
+    <script src="scripts/localization/localization.js"></script>
+    <script src="scripts/localization/localization.en.js"></script>
+    <script src="scripts/localization/localization.de.js"></script>
+    <script src="scripts/localization/localization.hu.js"></script>
+    <script src="scripts/localization/localization.ko.js"></script>
+    <script src="scripts/localization/localization.it.js"></script>
+    <script src="scripts/backgroundService.js"></script>
+    <script src="scripts/colorPickerService.js"></script>
+    <script src="scripts/popupService.js"></script>
+    <script src="scripts/settingsWindowService.js"></script>
+    <script src="scripts/projectWindowService.js"></script>
+    <script src="scripts/imageService.js"></script>
+    <script src="scripts/historyService.js"></script>
+    <script src="scripts/clipboardService.js"></script>
+    <script src="scripts/helpService.js"></script>
+    <script src="scripts/deviceService.js"></script>
+    <script src="scripts/scriptManagerService.js"></script>
+    <script src="scripts/projectService.js"></script>
+    <script src="scripts/fidgetService.js"></script>
+    <script src="scripts/editorService.js"></script>
+    <script src="scripts/enumService.js"></script>
+    <script src="scripts/variableService.js"></script>
+    <script src="scripts/projectConversionService.js"></script>
+    <script src="scripts/projectStorageService.js"></script>
+    <script src="scripts/diagnosticsService.js"></script>
+    <script src="scripts/backupService.js"></script>
+    <script src="scripts/iconService.js"></script>
+
+    <!--Controllers-->
+    <script src="scripts/controllers/propertiesWindowController.js"></script>
+    <script src="scripts/controllers/flexGuiController.js"></script>
+    <script src="scripts/controllers/fidgetController.js"></script>
+    <script src="scripts/controllers/fidgetGroupController.js"></script>
+    <script src="scripts/controllers/inputController.js"></script>
+    <script src="scripts/controllers/imageController.js"></script>
+    <script src="app.js"></script>
+</head>
+<body id="body"
+      ng-controller="flexGuiCtrl"
+      class="screen"
+      hm-tap="mirrorMode.onScreenTap($event)"
+      hm-pinch="pinchZoom($event)">
+
+    <style>
+        .editModeOn{
+            padding: {{editHandler.safetyDistance}}px;
+	        margin-left: {{-editHandler.safetyDistance}}px;
+	        margin-top: {{-editHandler.safetyDistance}}px;
+        }
+
+        .modals, .notificationBar, .minimized-popup{
+            zoom: {{settings.zoomControls ? 150 : 100}}%;
+        }
+
+        .scriptEditor {
+            zoom: {{settings.zoomControls ? 100 * 1/1.5 : 100}}%;
+        }
+    </style>
+
+
+    <div ng-keydown="::editHandler.onKeyDown($event)"
+         ng-keyup="::editHandler.onKeyUp($event)"
+         hm-panstart="::editHandler.onMouseDown($event)"
+         hm-recognizer-options='[{"type":"pan","threshold":2}]'
+         hm-panend="::editHandler.onMouseUp($event)"
+         hm-panmove="::editHandler.onMouseMove($event)"
+         tabindex="0"
+         class="main"
+         id="main">
+
+        <!--Screen area-->
+        <div id="currentScreen" style="left: {{project.screenBeltVisible ? beltWidth : 0}}px; margin-right: {{editHandler.isEditMode ? beltWidth : 0}}px;"
+             hm-tap="::editHandler.onScreenTap($event)">
+
+            <!-- Fidgets -->
+            <ng-include src="screenRoot"></ng-include>
+        </div>
+
+        <div class="notificationBar"
+             ng-if="settings.isSoftwareOffline || drive.saveNeeded || drive.downloadNeeded || (device.topics|filter:{isOffline:true}).length > 0">
+            <!--Connection: offline mode-->
+            <div class="alert alert-hollow text-center connectionAlert" ng-if="settings.isSoftwareOffline || drive.saveNeeded || drive.downloadNeeded">
+                <span ng-if="settings.isSoftwareOffline">
+                    {{localization.currentLocal.settings.tabs.conn.offlineMode}}
+                </span>
+
+                <span ng-if="drive.downloadNeeded">
+                    New version available on server, <a ng-click="drive.download(true, true)">download</a> now.
+                </span>
+
+                <span ng-if="drive.saveNeeded">
+                    Project changed, <a ng-click="drive.save(false, false, true)">upload</a> to server to save your project.
+                </span>
+            </div>
+            <!--Offline topics-->
+            <div class="alert alert-hollow text-center offlineTopics" ng-if="(device.topics|filter:{isOffline:true}).length > 0">
+                <ul>
+                    <li ng-repeat="topic in device.topics|filter:{isOffline:true}|limitTo:3">{{topic.path}}</li>
+                    <li ng-if="(device.topics|filter:{isOffline:true}).length > 3"> and more({{(device.topics|filter:{isOffline:true}).length - 3}}) </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--Quick Call fidget (if installed)-->
+        <ng-include src="toTrustedUrl(quickCall)"></ng-include>
+
+        <!-- FidgetBelt -->
+        <ng-include ng-if="editHandler.isEditMode && project.screens.length > 0" src="'views/fidgetBelt.html'"></ng-include>
+
+        <!-- ScreenBelt -->
+        <ng-include ng-if="!editHandler.isEditMode && project.screenBeltVisible" src="'views/screenBelt.html'"></ng-include>
+
+        <!-- EditBelt -->
+        <ng-include ng-if="editHandler.isEditMode" src="'views/editBelt.html'"></ng-include>
+
+        <!-- EditSwitch -->
+        <ng-include ng-if="!project.currentScreen.editDisabled && editHandler.isEditAvailable() && (project.screenBeltVisible || editHandler.isEditMode)" src="editHandler.editSwitch"></ng-include>
+
+        <!-- EditSwitch -->
+        <ng-include ng-if="project.currentScreen.editDisabled && editHandler.isEditAvailable() && (project.screenBeltVisible || editHandler.isEditMode)" src="'views/settingsSwitch.html'"></ng-include>
+
+        <!-- Enable belt switch-->
+        <ng-include ng-hide="project.screenBeltVisible || editHandler.isEditMode" src="'views/openBelt.html'"></ng-include>
+
+        <div ng-repeat="addon in screenAddons" ng-include="addon">
+
+        </div>
+
+        <div ng-if="popup.messages.length > 0 && popup.minimized" ng-click="popup.showAll()" class="alert alert-danger minimized-popup">
+            Hidden popup messages: {{popup.messages.length}}
+        </div>
+    </div>
+
+    <div class="modals">
+        <ng-include src="'views/modalWindows.html'"></ng-include>
+    </div>
+
+    <div ng-hide="hideCover" style="padding: 30px; position: fixed; top: 0; left: 0; width: 100%; height: 100%;background: url(images/bg.jpg) no-repeat center center fixed; background-size: cover; background-color: #808080">
+        <div style="width: 100%; height: 100%; background: url(images/bg_fg_logo.png) no-repeat center center fixed; background-size: 50%;">
+
+        </div>
+        <img src="images/ppm_logo.png" style="position: fixed; top: 20px; right: 20px; width: 250px;" />
+    </div>
+
+    <div id="statistics" style="position: fixed; top: 20px; right: {{editHandler.isEditMode ? beltWidth + 20 : 20}}px; width: 200px; height: 350px;">
+
+    </div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/3rdParty/ng-cordova.js"></script>
+</body>
+</html>

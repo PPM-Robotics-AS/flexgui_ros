@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="io.cordova.CordovaTest" version="1.1.1" xmlns="http://www.w3.org/ns/widgets">
+  <name>FlexGui 4.0</name>
+  <description />
+  <author href="http://cordova.io" email="dev@cordova.apache.org">Natto Kft.</author>
+  <content src="flexGui.html" />
+  <access origin="*" />
+  <preference name="SplashScreen" value="screen" />
+  <preference name="windows-target-version" value="8.0" />
+  <preference name="windows-phone-target-version" value="8.1" />
+  <preference name="Fullscreen" value="false" />
+  <preference name="Orientation" value="default" />
+  <preference name="EnableViewportScale" value="true" />
+  <preference name="LoadWithOverviewMode" value="true" />
+  <vs:platformSpecificValues />
+</widget>

@@ -1,0 +1,23 @@
+﻿#settings.json parameters:
+- serverUrl: the current server which will serve the enterprise trial requests and handle the login / promotion calls
+- websiteUrl: the flexgui 4.0 website's URL
+- enterpriseTrialUrl: URL to the description of the trial website with the steps
+- buildInPluginLogin: FlexGui 4.0 should handle the login or the trial server: for android version choose FG4.0, for web version choose Trial Server
+- forceAuth: FG4.0 can be used without authentication or not. Basically to redirect back the user from the trial server to the login site, if the user is not logged in before
+
+*RELEASE SETTINGS FOR ANDROID*
+{
+    "serverUrl": "https://flexgui4trial.ppm.no/",
+    "websiteUrl": "https://www.ppm.no/flexgui4-",
+    "enterpriseTrialUrl": "https://www.ppm.no/flexgui4-Home/Index/trial",
+    "buildInPluginLogin":  "true"
+}
+
+*RELEASE SETTINGS FOR TRIAL SERVER*
+{
+    "serverUrl": "https://flexgui4trial.ppm.no/",
+    "websiteUrl": "https://www.ppm.no/flexgui4-",
+    "enterpriseTrialUrl": "https://www.ppm.no/flexgui4-Home/Index/trial",
+    "buildInPluginLogin": "false",
+    "forceAuth":  "true"
+}

@@ -1,0 +1,42 @@
+﻿<style ng-if="fidget.properties.orientation == 'horizontal'">
+    #{{fidget.id}} .slider-handle{
+                       height: {{fidget.properties.height}}px; width:{{fidget.properties.height/2}}px;
+                       margin-top: -4px;
+                       margin-left:{{-fidget.properties.height/4}}px;
+                   }
+    #{{fidget.id}} .slider-track{
+                       height: {{fidget.properties.height - 8}}px;
+                   }
+
+    #{{fidget.id}} .slider.slider-horizontal{
+                       width: 100%;
+                   }
+
+    #{{fidget.id}} div{
+
+                   }
+</style>
+
+<style ng-if="fidget.properties.orientation == 'vertical'">
+    #{{fidget.id}} .slider-handle{
+                       height: {{fidget.properties.width/2}}px; width:{{fidget.properties.width}}px;
+                       margin-top: {{-fidget.properties.width/4}}px;
+                   }
+    #{{fidget.id}} .slider-track{
+                       width: {{fidget.properties.width - 8}}px;
+                   }
+
+    #{{fidget.id}} .slider.slider-vertical{
+                       height: 100%;
+                   }
+</style>
+
+<div style="width: {{fidget.properties.width}}px; height: {{fidget.properties.height}}px"  ng-click="onClick(fidget, $event)">
+    <slider orientation="fidget.properties.orientation" 
+            ng-model="fidget.properties.value" 
+            min="fidget.properties.min" 
+            step="fidget.properties.step" 
+            max="fidget.properties.max" 
+            value="fidget.properties.value"
+            style="height:100%;"></slider>
+</div>

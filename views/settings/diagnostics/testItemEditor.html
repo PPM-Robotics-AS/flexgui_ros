@@ -1,0 +1,52 @@
+﻿<div class="modal" id="editTestItemWindow" data-backdrop="static"
+     data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>{{diagnostics.originalTest ? localization.currentLocal.diagnostics.editTest : localization.currentLocal.diagnostics.newtest}}</h4>
+                <ng-include src="'views/helpIcon.html'" class="floatRight testItemEditorHelp" ng-init="help = helpMessages.settings.diagnosticsEditor" ng-if="helpMessages.show"></ng-include>
+            </div>
+
+            <div class="modal-body">
+                <div class="checkbox">
+                    <input type="checkbox" ng-model="diagnostics.editedTest.isUserDefined" id="isUserDefined">
+                    <label for="isUserDefined">{{::localization.currentLocal.diagnostics.userDefineCheck}}</label>
+                </div>
+
+                <div ng-if="diagnostics.editedTest.isUserDefined">
+                    <h4>{{::localization.currentLocal.diagnostics.name}}</h4>
+                    <input type="text" ng-model="diagnostics.editedTest.name" class="form-control" />
+
+                    <h4>{{::localization.currentLocal.diagnostics.script}}</h4>
+                    <ng-include src="diagnostics.scriptEditor"></ng-include>
+                </div>
+
+                <div ng-if="!diagnostics.editedTest.isUserDefined">
+                    
+                    <select class="form-control predefinedTestSelector"
+                            ng-model="diagnostics.editedTest.name"
+                            ng-options="key as localization.currentLocal.diagnostics.tests[key].name for (key, item) in diagnostics.tests"></select>
+
+                    <div ng-if="diagnostics.editedTest.name && diagnostics.tests[diagnostics.editedTest.name]" style="margin: 10px 0" ng-bind-html="localization.currentLocal.diagnostics.tests[diagnostics.editedTest.name].description" />
+
+                    <h4>{{::localization.currentLocal.diagnostics.params}}</h4>
+
+                    <div ng-repeat="(key, param) in diagnostics.tests[diagnostics.editedTest.name].params">
+                        <h5>{{key}}</h5>
+                        <i>{{::localization.currentLocal.diagnostics.tests[diagnostics.editedTest.name].params[key].description}}</i>
+                        <input type="text" ng-model="param.value" class="form-control" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-100" ng-click="diagnostics.setTestItemEditorVisible(false, true)" ng-disabled="diagnostics.isTestItemInvalid()">{{::localization.currentLocal.diagnostics.save}}</button>
+                <button type="button" class="btn btn-default btn-100" ng-click="diagnostics.setTestItemEditorVisible(false, false)">{{::localization.currentLocal.diagnostics.close}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $("#editTestItemWindow").modal("show");
+</script>

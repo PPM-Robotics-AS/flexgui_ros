@@ -1,0 +1,9 @@
+{
+    "serverUrl": "http://localhost/OnlineServer/",
+    "websiteUrl": "https://www.ppm.no/flexgui4-",
+    "enterpriseTrialUrl": "https://www.ppm.no/flexgui4-Home/Index/trial",
+    "buildInPluginLogin": "true",
+    "expertUrl": "https://expertsite.ppm.no",
+    "forceAuth": "false",
+    "testVersion":  null
+}

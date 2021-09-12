@@ -1,0 +1,67 @@
+﻿<div class="modal" id="wizardsDialog" data-backdrop="static"
+     data-keyboard="false"
+     ng-class="{'horizontal': !settings.isVertical}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="wizard.setVisible(false)">&times;</button>
+                <h4 class="modal-title">{{localization.currentLocal.wizard.title}}</h4>
+            </div>
+
+            <div class="modal-body">
+                <h4>{{localization.currentLocal.wizard.select}}</h4>
+                <select class="form-control" style="width: 100%;"
+                        ng-model="wizard.currentTemplate"
+                        ng-change="wizard.checkValid()"
+                        ng-options="item as item.label for item in wizard.templates track by item.name"></select>
+
+
+                <div ng-if="wizard.currentTemplate">
+
+                    <style>
+                        table {
+                            border-spacing: 10px !important;
+                            border-collapse: initial !important;
+                        }
+
+                        tr.invalid{
+                            color: red;
+                        }
+                    </style>
+
+                    <h4>{{localization.currentLocal.wizard.param}}</h4>
+                    <div class="alert alert-success" ng-bind-html="wizard.currentTemplate.help" style="margin-top: 10px"></div>
+                    <table style="width: 100%;">
+                        <tr ng-repeat="param in wizard.currentTemplate.params" ng-if="!param.hidden" ng-class="{'invalid': !param.valid }">
+                            <td style="width: 100px; padding-right: 10px; text-align: right;">
+                                <label>{{localization.currentLocal.wizard.templates[wizard.currentTemplate.name].params[param.name]}}</label>
+                            </td>
+                            <td>
+                                <select ng-change="param.onChange()" ng-model="param.value" ng-if="param.options" ng-options="o as o for o in param.options" class="form-control"></select>
+                                <input ng-change="param.onChange()" type="text" ng-model="param.value" ng-if="param.type != 'script' && !param.options" class="form-control" />
+                                <textarea ng-change="param.onChange()" style="width: 100%; height: 200px;" ng-if="param.type == 'script' && !param.options" class="form-control" ui-ace="{
+                                      useWrapMode : true,
+                                      mode: 'javascript',
+                                      firstLineNumber: 1,
+                                      onLoad: aceLoaded
+                                    }" ng-model="param.value"></textarea>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <h4>{{localization.currentLocal.wizard.output}}</h4>
+                    <div ng-bind-html="wizard.currentTemplate.getScript()"></div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-100" ng-disabled="!wizard.isValid" ng-click="wizard.insertTemplate(); wizard.setVisible(false)">{{localization.currentLocal.buttons.add}}</button>
+                <button type="button" class="btn btn-default btn-100" ng-click="wizard.setVisible(false)">{{localization.currentLocal.buttons.close}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('#wizardsDialog').modal('show');
+</script>

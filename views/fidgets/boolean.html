@@ -1,0 +1,9 @@
+﻿<div class="boolean"
+     style="height:{{fidget.properties.height}}px; width:{{fidget.properties.width}}px;"
+     ng-click="onClick(fidget, $event); lock(fidget)">
+
+    <div class="alert alert-danger" ng-class="{'alert-danger': fidget.properties.value != true, 'alert-success': fidget.properties.value == true}" role="alert" style="font-family: {{fidget.properties.font || 'inherit'}}; font-size: {{fidget.properties.fontSize}}px; color: {{fidget.properties.color}}">
+        <span class="glyphicon" ng-class="{'glyphicon-remove': fidget.properties.value != true, 'glyphicon-ok': fidget.properties.value == true}" aria-hidden="true"></span>
+        <span ng-bind-html="fidget.properties.text"></span>
+    </div>
+</div>

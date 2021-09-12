@@ -1,0 +1,19 @@
+﻿<div id="colorPicker" 
+     class="modal nontransparent" 
+     data-backdrop="static"
+     data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <ng-include src="'views/colorPicker.html'"></ng-include>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-100" ng-click="colorPickerHandler.showColorPicker(false)">{{::localization.currentLocal.buttons.cancel}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $("#colorPicker").modal("show");
+</script>

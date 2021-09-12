@@ -1,0 +1,36 @@
+﻿<!--Project Settings-->
+<div>
+    <h5 ng-if="isMobile" ng-bind-html="localization.currentLocal.settings.tabs.project.noteUseMobileMemory"></h5>
+
+    <h4>{{::localization.currentLocal.settings.tabs.project.upload}}</h4>
+    <h6><i>{{::localization.currentLocal.settings.tabs.project.uploadNote}}</i></h6>
+    <input type="file" ng-required="true" class="form-control" id="projectInput" accept=".fgproj" ng-parent="scope.blockMessage" ng-file-select="projects.uploadProject" />
+
+
+    <h4>{{::localization.currentLocal.settings.tabs.project.download}}</h4>
+    <button class="btn btn-default btn-block btn-lg" ng-click="projects.downloadPropject()">{{::localization.currentLocal.buttons.save}}</button>
+
+    <h4>{{::localization.currentLocal.buttons.remove}}</h4>
+    <button class="btn btn-default btn-block btn-lg" ng-click="projects.removeProject()">{{::localization.currentLocal.buttons.remove}}</button>
+
+    <h4>{{::localization.currentLocal.settings.tabs.project.newProject}}</h4>
+    <button class="btn btn-default btn-block btn-lg" ng-click="projects.clean(); settings.setVisible(false);">{{::localization.currentLocal.settings.tabs.project.createNew}}</button>
+
+    <div ng-if="!settings.offlineMode">
+        <h4>{{::localization.currentLocal.settings.tabs.project.storageMode.title}}</h4>
+        <!--Dropdown list of nodes-->
+        <select class="form-control"
+                ng-model="drive.mode"
+                ng-change="drive.saveMode()"
+                ng-options="mode for mode in ['rosparam', 'localStorage']"></select>
+
+        <div ng-show="drive.mode == 'rosparam'">
+            <h5>{{::localization.currentLocal.settings.tabs.project.storageMode.autoUpdate}}</h5>
+            <div class="checkbox">
+                <input type="checkbox" ng-model="drive.isAutoProjectUpdateEnabled" ng-change="drive.changeAutoUpdate()" id="showHideStats">
+                <label for="showHideStats">{{::localization.currentLocal.settings.tabs.project.storageMode.autoUpdateSwitch}}</label>
+            </div>
+            <i ng-bind-html="localization.currentLocal.settings.tabs.project.storageMode.autoUpdateNote"></i>
+        </div>
+    </div>
+</div>

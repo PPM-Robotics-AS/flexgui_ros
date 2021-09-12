@@ -1,0 +1,18 @@
+﻿<div style="width: 100%" ng-repeat="key in settings.topicDetails.getProperties(currentObject)">
+    <div style="font-size: {{18 - level}}px; font-weight: {{700 - level * 100}};">{{key}}</div>
+    
+    <div class="input-group has-feedback friendlyNameInput" ng-class="{ 'has-error' : device.isDupe(settings.topicDetails.currentTopic.deepFriendlyNames[currentPath]) }">
+        <input type="text" class="form-control" ng-model="settings.topicDetails.currentTopic.deepFriendlyNames[currentPath]">
+        <span style="color: {{device.isDupe(settings.topicDetails.currentTopic.deepFriendlyNames[currentPath]) ? 'white' : 'black'}}; pointer-events: initial !important;"
+              class="glyphicon glyphicon-remove form-control-feedback"
+              ng-click="settings.topicDetails.currentTopic.deepFriendlyNames[currentPath] = null"
+              ng-if="[null, undefined, ''].indexOf(settings.topicDetails.currentTopic.deepFriendlyNames[currentPath]) == -1"
+              ng-class="{ 'btn-danger' : device.isDupe(settings.topicDetails.currentTopic.deepFriendlyNames[currentPath]) }"></span>
+			  
+        <span class="glyphicon glyphicon-remove form-control-feedback text-danger"
+              style="z-index: 1;"
+              ng-show="device.isDupe(settings.topicDetails.currentTopic.deepFriendlyNames[currentPath]) && [null, undefined, ''].indexOf(settings.topicDetails.currentTopic.deepFriendlyNames[currentPath]) == -1"></span>
+    </div>
+       
+    <div ng-include="settings.topicDetails.repeater" ng-init="currentObject = currentObject[key]; currentPath = currentPath + ('.' + key); level = level + 1;"></div>
+</div>

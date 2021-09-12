@@ -1,0 +1,26 @@
+﻿<perfect-scrollbar class="belt screenBelt" style="width: {{::beltWidth}}px; bottom: {{project.currentScreen.editDisabled ? 0 : 120}}px">
+    <!--Screens-->
+    <div ng-repeat="screen in project.screens track by screen.id"
+         ng-if="screen.visible"
+         class="screenBeltItem"
+         hm-press="editScreen(screen)"
+         hm-tap="onScreenClick(screen, $event)"
+         ng-class="{ 'selectedScreenBeltItem' : project.currentScreen == screen }">
+        <img ng-src="{{screen.indexImage}}" />
+        <div title="{{screen.properties.name}}">{{screen.properties.name}}</div>
+    </div>
+    <!--New screen-->
+    <div class="screenBeltItem"
+         ng-click="project.showAddScreen(true)"
+         style="height: 120px;"
+         ng-if="editHandler.isAddScreenAvailable() && project.loaded">
+        <div class="screen addScreen" style="height: 85px; line-height: 85px;">+</div>
+        <span style="text-align: center;">{{::localization.currentLocal.buttons.addScreen}}</span>
+    </div>
+
+    <div class="fidgetHelp" style="height: 120px; pointer-events: initial;" ng-if="helpMessages.show">
+        <ng-include src="'views/helpIcon.html'" class="helpIconFidgetBelt" ng-init="help = helpMessages.screenBelt; resize = 2;"></ng-include>
+
+        <span>{{::localization.currentLocal.help.label}}</span>
+    </div>
+</perfect-scrollbar>

@@ -1,0 +1,9 @@
+﻿<!-- More info about perfect scrollbar: https://github.com/itsdrewmiller/angular-perfect-scrollbar -->
+
+<perfect-scrollbar wheel-propagation="true" wheel-speed="1"
+                   
+                   ng-click="onClick(fidget, $event)"
+                   class="scroller scrollableText perfectScrollBar"
+                   style="width:{{fidget.properties.width}}px; height:{{fidget.properties.height}}px; font-size: {{fidget.properties.fontSize}}px; color: {{fidget.properties.color}}; font-family: {{fidget.properties.font}}; text-align: {{fidget.properties.textAlign}};">
+    <div ng-bind-html="fidget.properties.text" style="margin: 10px;"></div>
+</perfect-scrollbar>

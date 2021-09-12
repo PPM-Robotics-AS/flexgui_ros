@@ -1,0 +1,25 @@
+﻿<perfect-scrollbar ng-style="style.scroller"
+                   class="scroller perfectScrollBar radioGroup"
+                   wheel-propagation="true" wheel-speed="1"
+                   wheel-propagation="true"
+                   wheel-speed="10"
+                   min-scrollbar-length="20"
+                   ng-click="onClick(fidget, $event); lock(fidget);">
+    <di style="border-collapse:collapse; padding: 0px;">
+        <div ng-repeat="option in fidget.properties.options.split(',') track by $index" style="vertical-align: middle; margin: 10px 0">
+            <label class="checkbox"
+                   ng-style="style.checkbox"
+                   ng-click="setValue(fidget, option)">
+                <span ng-style="style.span">{{option}}</span>
+                <input type="radio" name="{{fidget.id}}" ng-checked="option == fidget.properties.value">
+                <span ng-style="style.checkmark" class="checkmark form-control"></span>
+            </label>
+        </div>
+    </di>
+</perfect-scrollbar>
+
+<style>
+    #{{fidget.id}} .checkbox .checkmark:after{
+                       zoom: {{((fidget.properties.radioSize) / 25) * 100}}%;
+                   }
+</style>

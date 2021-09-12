@@ -1,0 +1,5 @@
+﻿[
+    { "src": "addons/advancedScripting/advancedScripting.js", "service": "advancedScriptingService" },
+    { "src": "addons/extendedFidgets/extendedFidgets.js", "service": "extendedFidgetsService" },
+    { "src": "addons/templateWizard/wizardService.js", "service": "wizardService", "rootScopeName": "wizard" }
+]

@@ -1,0 +1,22 @@
+﻿<div class="checkbox">
+    <input type="checkbox" ng-model="backup.enabled" id="backupEnabled">
+    <label for="backupEnabled">{{::localization.currentLocal.settings.tabs.backup.enableBackup}}</label>
+</div>
+
+<table class="backups">
+    <tr>
+        <td style="width: 200px;">{{::localization.currentLocal.settings.tabs.backup.date}}</td>
+        <td style="width: 100px; text-align: left;">{{::localization.currentLocal.settings.tabs.backup.size}}</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+
+<table class="backups table-striped">
+    <tbody>
+        <tr ng-repeat="item in backup.list track by $index" style="">
+            <td><time datetime="{{::(item.date * 1000 | date:'yyyy-MM-dd HH:mm')}}" class="unselectable">{{backup.timeago(item.date)}}</time></td>
+            <td>{{item.size / 1000}}kB</td>
+            <td><button type="button" class="btn btn-default btn-100" ng-click="backup.restore(item)">{{::localization.currentLocal.settings.tabs.backup.restore}}</button></td>
+        </tr>
+    </tbody>
+</table>

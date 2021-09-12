@@ -1,0 +1,19 @@
+﻿<perfect-scrollbar class="belt editBelt" style="width: {{::beltWidth}}px;">
+    <!--Actions-->
+    <div ng-hide="action.hidden"
+         ng-repeat="action in editHandler.actions | orderObjectBy:['position']"
+         class="editActions"
+         ng-click="action.onTap()"
+         ng-class="{'disabled': !action.enabled, 'stick': action.sticked }"
+         style="background-image: url({{::icons.get(action.icon)}}), url({{::icons.get(action.icon, true)}});">
+
+        <span class="fidgetName">{{::action.label}}</span>
+    </div>
+</perfect-scrollbar> 
+
+<!--Overlay-->
+<div class="belt editBelt" ng-show="(!editHandler.currentMode || editHandler.currentMode.showBeltOverlayes) && editHandler.isMouseDown == true && editHandler.selectedFidgets.length > 0" style="width: {{::beltWidth}}px;">
+    <div class="beltOverlay">
+        <div>{{::localization.currentLocal.editMode.properties}}</div>
+    </div>
+</div>

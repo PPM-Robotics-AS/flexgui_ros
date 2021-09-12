@@ -1,0 +1,16 @@
+﻿<div class="dropdown"
+     ng-click="onClick(fidget, $event)">
+    <select class="form-control"
+            ng-model="fidget.properties.value"
+            ng-style="style.list"
+            ng-options="option for option in fidget.properties.options.split(',')"></select>
+
+    <div class="overLayer"
+         ng-style="style.overlayer">
+        <div>
+            <div>
+                {{fidget.properties.value}}
+            </div>
+        </div>
+    </div>
+</div>

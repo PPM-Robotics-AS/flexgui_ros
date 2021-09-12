@@ -1,0 +1,26 @@
+﻿<i>{{localization.currentLocal.settings.tabs.initScript.note}}</i>
+
+<div ng-controller="scriptEditorController" ng-click="scrollBottom()"
+     class="scriptEditor"
+     ng-class="{ 'fullscreen': isFullscreen }"
+     ng-style="isFullscreen ? editorStyle : {}"
+     style="text-align: right; margin-right: 40px;"
+     id="{{id}}">
+    <div class="editorContainer" style="height: 380px;">
+        <textarea class="form-control" ui-ace="{
+                          useWrapMode : true,
+                          mode: 'javascript',
+                          firstLineNumber: 1,
+                          onLoad: aceLoaded,
+                          onChange: initEdited,
+                          useWorker: false
+                        }" ng-model="project.initScript"></textarea>
+    </div>
+
+    <div class="controllers" style="position: relative; right: 0px">
+        <ng-include ng-repeat="extra in scriptEditorExtras" src="extra"></ng-include>
+        <button class="btn btn-default glyphicon"
+                ng-class="{'glyphicon-resize-full': !isFullscreen, 'glyphicon-resize-small': isFullscreen}"
+                ng-click="setFullscreen(!isFullscreen)"></button>
+    </div>
+</div>

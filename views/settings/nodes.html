@@ -1,0 +1,4 @@
+﻿<!--Nodes tab-->
+<ng-include src="'views/nodesTab.html'" ng-if="!settings.isSoftwareOffline"></ng-include>
+
+<h4 ng-if="settings.isSoftwareOffline">{{::localization.currentLocal.settings.tabs.nodes.demoAlert}}</h4>

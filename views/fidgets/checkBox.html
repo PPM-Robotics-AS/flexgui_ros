@@ -1,0 +1,13 @@
+<label class="checkbox"
+       ng-style="style.checkbox"
+       ng-click="onClick(fidget, $event);">
+    <span ng-style="style.span">{{fidget.properties.text}}</span>
+    <input type="checkbox" ng-model="fidget.properties.value" ng-checked="fidget.properties.value" ng-change="lock(fidget)">
+    <span ng-style="style.checkmark" class="checkmark form-control"></span>
+</label>
+
+<style>
+    #{{fidget.id}} .checkbox .checkmark:after{
+                       zoom: {{(fidget.properties.height / 25) * 100}}%;
+                   }
+</style>

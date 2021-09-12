@@ -1,0 +1,40 @@
+﻿<i>
+    {{::localization.currentLocal.settings.tabs.conn.description}}
+</i>
+
+<div>
+    <h5>{{::localization.currentLocal.settings.tabs.conn.addons}}</h5>
+    <div>
+        <div class="checkbox">
+            <input type="checkbox" ng-model="device.localAddons" id="localAddons">
+            <label for="localAddons">{{::localization.currentLocal.settings.tabs.conn.localAddons}}</label>
+        </div>
+    </div>
+    <h5>{{::localization.currentLocal.settings.tabs.conn.reconnect}}</h5>
+    <div>
+        <div class="checkbox">
+            <input type="checkbox" ng-model="device.reconnect" id="reconnect">
+            <label for="reconnect">{{::localization.currentLocal.settings.tabs.conn.reconnectSwitch}}</label>
+        </div>
+    </div>
+    <h5>{{::localization.currentLocal.settings.tabs.conn.ip}}</h5>
+    <input class="form-control" type="text" ng-model="device.ip" />
+    <h5>{{::localization.currentLocal.settings.tabs.conn.port}}</h5>
+    <input class="form-control" type="text" ng-model="device.port" />
+    <h5>{{::localization.currentLocal.settings.tabs.conn.secure}}</h5>
+    <div>
+        <div class="checkbox">
+            <input type="checkbox" ng-model="device.secure" id="secure">
+            <label for="secure">{{::localization.currentLocal.settings.tabs.conn.secureSwitch}}</label>
+        </div>
+    </div>
+</div>
+<h5>{{::localization.currentLocal.settings.tabs.conn.offlineMode}}</h5>
+<div>
+    <div class="checkbox">
+        <input type="checkbox" ng-model="settings.offlineMode" id="offlineMode" ng-disabled="window.location.protocol == 'https:'">
+        <label for="offlineMode">{{::localization.currentLocal.settings.tabs.conn.offlineModeSwitch}}</label>
+    </div>
+</div>
+<br /><br />
+<button class="btn btn-default btn-100" ng-click="settings.saveDiSettings()">{{::localization.currentLocal.buttons.save}}</button>

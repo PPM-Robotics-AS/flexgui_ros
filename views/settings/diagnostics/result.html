@@ -1,0 +1,36 @@
+﻿<div class="modal" id="diagnosticsResultWindow" data-backdrop="static"
+     data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>{{::localization.currentLocal.diagnostics.resultTitle}}</h4>
+            </div>
+            <div class="modal-body">
+                <div ng-repeat="test in project.testSequence | filter:{selected:true} track by test.id">
+                    <!--Status-->
+                    
+                    <span ng-if="diagnostics.finishedTests == project.testSequence.length || diagnostics.currentIndex > project.testSequence.indexOf(test)" class="glyphicon glyphicon-ok-circle"></span>
+                    <span ng-if="test == diagnostics.currentTest && diagnostics.finishedTests != project.testSequence.length && diagnostics.currentIndex <= project.testSequence.indexOf(test)" class="glyphicon glyphicon-play-circle"></span>
+                    <span ng-if="test != diagnostics.currentTest && diagnostics.finishedTests != project.testSequence.length && diagnostics.currentIndex <= project.testSequence.indexOf(test)" class="glyphicon glyphicon-time"></span>
+
+                    <b ng-if="!test.isUserDefined">{{::localization.currentLocal.diagnostics.tests[test.name].name}}</b>
+                    <b ng-if="test.isUserDefined">{{test.name}}</b>
+                    <i ng-if="!test.isUserDefined">{{test.params}}</i> <br />
+                    <div ng-bind-html="toTrustedHTML(test.result)"></div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" 
+                        ng-click="diagnostics.finishedTests = project.testSequence.length;diagnostics.setResultVisible(false)" 
+                        ng-disabled="diagnostics.finishedTests == project.testSequence.length">{{::localization.currentLocal.diagnostics.cancel}}</button>
+
+                <button type="button" class="btn btn-default btn-100" ng-click="diagnostics.setResultVisible(false)" ng-disabled="diagnostics.finishedTests != project.testSequence.length">{{::localization.currentLocal.diagnostics.close}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $("#diagnosticsResultWindow").modal("show");
+</script>

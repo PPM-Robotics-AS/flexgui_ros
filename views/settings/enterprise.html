@@ -1,0 +1,28 @@
+﻿<i ng-click="settings.trial.readMore()" ng-bind-html="localization.currentLocal.settings.tabs.enterprise.description"></i>
+
+<div ng-if="['false', false].indexOf(flexguiSettings.buildInPluginLogin) == -1">
+    <h5>{{::localization.currentLocal.settings.tabs.enterprise.username}}</h5>
+    <input class="form-control" type="text" ng-model="settings.trial.username" />
+    <h5>{{::localization.currentLocal.settings.tabs.enterprise.password}}</h5>
+    <input class="form-control" type="password" ng-model="settings.trial.password" />
+</div>
+
+<h5>{{::localization.currentLocal.settings.tabs.enterprise.trialTitle}}</h5>
+<div>
+    <div class="checkbox">
+        <input type="checkbox" ng-model="settings.trial.mode" id="trialMode">
+        <label for="trialMode">{{::localization.currentLocal.settings.tabs.enterprise.switchTrial}}</label>
+    </div>
+</div>
+
+<div ng-if="trialMaxDays && trialRemainingDays" class="progress remainingTrial">
+    <div class="progress-bar" role="progressbar" aria-valuenow="{{trialRemainingDays}}"
+         aria-valuemin="0" aria-valuemax="{{trialMaxDays}}" style="width: {{trialRemainingDays / trialMaxDays * 100}}%;">
+        <div class="progress-bar-percent">
+            <span>{{trialRemainingDays}}/{{trialMaxDays}} days</span>
+        </div>
+    </div>
+</div>
+<br /><br />
+
+<button class="btn btn-default btn-100" ng-click="settings.trial.save()">{{::localization.currentLocal.buttons.save}}</button>

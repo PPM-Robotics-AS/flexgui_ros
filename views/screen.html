@@ -1,0 +1,10 @@
+﻿<div class="{{(screen || project.currentScreen).type}} screen"
+     ng-style="project.currentScreen.backgroundImage ? { 'background': 'url(' + images.getImageFromFriendlyCache(project.currentScreen.backgroundImage)  + ')'} : {}">
+    
+    <img style="width: {{project.currentScreen.properties.logoWidth}}px;"
+         ng-style="project.screenBeltVisible && project.currentScreen.properties.logoPosition.indexOf('Left') > -1 ? { left: beltWidth + 10 } : { }"
+         class="{{project.currentScreen.properties.logoPosition}}"
+         ng-src="{{project.currentLogo}}" />
+
+    <div fg-fidget-repeater fidgets="project.currentScreen.fidgets" />
+</div>

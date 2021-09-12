@@ -1,0 +1,28 @@
+﻿<div class="modal nontransparent" 
+     id="popupMessageDialog" 
+     data-backdrop="static"
+     data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">{{::localization.currentLocal.popup.title}} ({{popup.messages.length}})</h4>
+            </div>
+            <div class="modal-body popupMessageBody {{popup.last().type.color}}">
+                <div class="floatRight popupType">
+                    <span class="glyphicon {{popup.last().type.class}}"></span>
+                    <h3 class="text-center">{{popup.last().type.name}}</h3>
+                </div>
+                <span class="text-large" ng-bind-html="popup.last().text"></span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-100" ng-click="popup.closeAll()">{{::localization.currentLocal.buttons.closeAll}}</button>
+                <button type="button" class="btn btn-default btn-100" ng-click="popup.close()">{{::localization.currentLocal.buttons.close}}</button>
+                <button type="button" class="btn btn-default btn-100" ng-click="popup.minimize()">Minimize</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $("#popupMessageDialog").modal("show");
+</script>

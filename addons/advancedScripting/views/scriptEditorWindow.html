@@ -1,0 +1,38 @@
+﻿<div id="scriptEditor" class="modal nontransparent" data-backdrop="static"
+     data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content" style="min-height: 170px;">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="project.changeScriptEditor.setVisible(false)">&times;</button>
+                <h4 class="modal-title">{{localization.format(localization.currentLocal.settings.tabs.nodes.changeScriptTitle, [project.changeScriptEditor.currentTopic.shortPath])}}</h4>
+            </div>
+
+            <div style="margin:10px;"> 
+                <h6><i ng-bind-html="localization.currentLocal.settings.tabs.nodes.changeScriptNote"></i></h6>
+            </div>
+            <div class="modal-body" style="text-align: center;min-height: 110px;">
+                <div ui-ace="{
+                          useWrapMode : true,
+                          mode: 'javascript',
+                          firstLineNumber: 1,
+                          onLoad: aceLoaded,
+                          useWorker: false
+                        }" ng-model="project.changeScriptEditor.script" ng-controller="scriptEditorController"></div>
+
+                <style>
+                    .ace_editor {
+                        height: 200px;
+                    }
+                </style>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-100" ng-click="project.changeScriptEditor.saveScript()">{{localization.currentLocal.buttons.save}}</button>
+                <button type="button" class="btn btn-default btn-100" ng-click="project.changeScriptEditor.setVisible(false)">{{localization.currentLocal.buttons.cancel}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $("#scriptEditor").modal("show");
+</script>

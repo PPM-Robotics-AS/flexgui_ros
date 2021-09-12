@@ -1,0 +1,674 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{18A63079-CF9C-4C17-BD2E-78BEC9AC83C4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FlexGui_4._0</RootNamespace>
+    <AssemblyName>FlexGui 4.0</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="addons\list.json" />
+    <Content Include="addons\themes\styles\themes\default.less" />
+    <Content Include="addons\themes\styles\themes\hyundai\fonts\RobotoCondensed.woff2" />
+    <Content Include="addons\themes\styles\themes\hyundai\style.less" />
+    <Content Include="addons\themes\styles\themes\IBG\style.less" />
+    <Content Include="addons\themes\styles\themes\nachi\fonts\RobotoCondensed.woff2" />
+    <Content Include="addons\themes\styles\themes\nachi\style.less" />
+    <Content Include="addons\themes\styles\themes\nortura\fonts\GT-Walsheim-Light.eot" />
+    <Content Include="addons\themes\styles\themes\nortura\fonts\GT-Walsheim-Light.ttf" />
+    <Content Include="addons\themes\styles\themes\nortura\fonts\GT-Walsheim-Light.woff" />
+    <Content Include="addons\themes\styles\themes\nortura\style.less" />
+    <Content Include="addons\themes\styles\themes\rainpower\style.less" />
+    <Content Include="build\addons\addons.dat" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="package.json" />
+    <Content Include="project.json" />
+    <Content Include="res\native\android\ant.properties" />
+    <Content Include="settings.json" />
+    <Content Include="styles\fonts\fontawesome-webfont.eot" />
+    <Content Include="styles\fonts\fontawesome-webfont.ttf" />
+    <Content Include="styles\fonts\fontawesome-webfont.woff" />
+    <Content Include="styles\fonts\fontawesome-webfont.woff2" />
+    <Content Include="styles\fonts\FontAwesome.otf" />
+    <Content Include="styles\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="styles\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="styles\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="styles\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="styles\themes\default.less" />
+    <Content Include="styles\themes\default\font\Prototype.woff" />
+    <Content Include="styles\themes\default\font\RobotoCondensed.woff2" />
+    <Content Include="styles\themes\default\style.less" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="addons\advancedScripting\advancedScripting.js" />
+    <Content Include="addons\advancedScripting\scripts\3rdParty\ace\src\ace.js" />
+    <Content Include="addons\advancedScripting\scripts\3rdParty\ace\src\mode-css.js" />
+    <Content Include="addons\advancedScripting\scripts\3rdParty\ace\src\mode-javascript.js" />
+    <Content Include="addons\advancedScripting\scripts\3rdParty\ace\src\snippets\css.js" />
+    <Content Include="addons\advancedScripting\scripts\3rdParty\ace\src\snippets\javascript.js" />
+    <Content Include="addons\advancedScripting\scripts\3rdParty\ace\ui-ace.js" />
+    <Content Include="addons\advancedScripting\scripts\controllers\scriptEditorController.js" />
+    <Content Include="addons\advancedScripting\views\editors\script.html" />
+    <Content Include="addons\advancedScripting\views\help\styleSheet.html" />
+    <Content Include="addons\advancedScripting\views\properties\onClick.html" />
+    <Content Include="addons\advancedScripting\views\scriptEditorWindow.html" />
+    <Content Include="addons\advancedScripting\views\settings\diagnostics\scriptEditor.html" />
+    <Content Include="addons\advancedScripting\views\settings\init.html" />
+    <Content Include="addons\advancedScripting\views\settings\nodes\header.html" />
+    <Content Include="addons\advancedScripting\views\settings\nodes\interface.html" />
+    <Content Include="addons\advancedScripting\views\settings\styleSheet.html" />
+    <Content Include="addons\charts\chartsService.js" />
+    <Content Include="addons\charts\images\fidgets\chart.png" />
+    <Content Include="addons\charts\scripts\3rdParty\Chart.bundle.js" />
+    <Content Include="addons\charts\scripts\3rdParty\chart.css" />
+    <Content Include="addons\charts\scripts\3rdParty\utils.js" />
+    <Content Include="addons\charts\scripts\controllers\chartController.js" />
+    <Content Include="addons\charts\views\chartWizard.html" />
+    <Content Include="addons\charts\views\fidgets\chart.html" />
+    <Content Include="addons\charts\views\fidgets\properties\_chartType.html" />
+    <Content Include="addons\charts\views\fidgets\properties\_data.html" />
+    <Content Include="addons\directConnection\directConectionService.js" />
+    <Content Include="addons\directConnection\directConnectionService.js" />
+    <Content Include="addons\directConnection\views\connectionEditor.html" />
+    <Content Include="addons\directConnection\views\settings\directConnections.html" />
+    <Content Include="addons\easyEditMode\easyEditMode.js" />
+    <Content Include="addons\easyEditMode\images\grid.png" />
+    <Content Include="addons\easyEditMode\images\resize.png" />
+    <Content Include="addons\easyEditMode\images\rotate.png" />
+    <Content Include="addons\easyEditMode\views\fidgets\fidgetGroup.html" />
+    <Content Include="addons\easyEditMode\views\screen.html" />
+    <Content Include="addons\easyEditMode\views\settings\general.html" />
+    <Content Include="addons\easyEditMode\views\variableRepeater.html" />
+    <Content Include="addons\easyEditMode\views\variableSelector.html" />
+    <Content Include="addons\extendedFidgets\extendedFidgets.js" />
+    <Content Include="addons\extendedFidgets\images\destination.png" />
+    <Content Include="addons\extendedFidgets\images\fidgets\3d.png" />
+    <Content Include="addons\extendedFidgets\images\fidgets\cameraImage.png" />
+    <Content Include="addons\extendedFidgets\images\fidgets\shape.png" />
+    <Content Include="addons\extendedFidgets\images\fidgets\slam.png" />
+    <Content Include="addons\extendedFidgets\images\robot.png" />
+    <Content Include="addons\extendedFidgets\scripts\3rdParty\3dViewer\ColladaLoader.js" />
+    <Content Include="addons\extendedFidgets\scripts\3rdParty\3dViewer\ColladaLoader2.js" />
+    <Content Include="addons\extendedFidgets\scripts\3rdParty\3dViewer\ros3d.min.js" />
+    <Content Include="addons\extendedFidgets\scripts\3rdParty\3dViewer\STLLoader.js" />
+    <Content Include="addons\extendedFidgets\scripts\3rdParty\3dViewer\three.js" />
+    <Content Include="addons\extendedFidgets\scripts\3rdParty\mjpeg.js" />
+    <Content Include="addons\extendedFidgets\scripts\controllers\3dViewerController.js" />
+    <Content Include="addons\extendedFidgets\scripts\controllers\cameraImageController.js" />
+    <Content Include="addons\extendedFidgets\scripts\controllers\shapeController.js" />
+    <Content Include="addons\extendedFidgets\scripts\controllers\slamMapController.js" />
+    <Content Include="addons\extendedFidgets\views\fidgets\cameraImage.html" />
+    <Content Include="addons\extendedFidgets\views\fidgets\shape.html" />
+    <Content Include="addons\extendedFidgets\views\fidgets\shapes\circle.html" />
+    <Content Include="addons\extendedFidgets\views\fidgets\shapes\ellipse.html" />
+    <Content Include="addons\extendedFidgets\views\fidgets\shapes\path.html" />
+    <Content Include="addons\extendedFidgets\views\fidgets\shapes\polygon.html" />
+    <Content Include="addons\extendedFidgets\views\fidgets\shapes\rectangle.html" />
+    <Content Include="addons\extendedFidgets\views\fidgets\slam.html" />
+    <Content Include="addons\extendedFidgets\views\fidgets\threeDViewer.html" />
+    <Content Include="addons\factoryDesigner\factoryDesigner.js" />
+    <Content Include="addons\factoryDesigner\images\factoryScreen.png" />
+    <Content Include="addons\factoryDesigner\images\fidgets\camera.png" />
+    <Content Include="addons\factoryDesigner\images\fidgets\cameraView.png" />
+    <Content Include="addons\factoryDesigner\images\fidgets\door.png" />
+    <Content Include="addons\factoryDesigner\images\fidgets\fence.png" />
+    <Content Include="addons\factoryDesigner\images\fidgets\genobs.png" />
+    <Content Include="addons\factoryDesigner\images\fidgets\plc.png" />
+    <Content Include="addons\factoryDesigner\images\fidgets\road.png" />
+    <Content Include="addons\factoryDesigner\images\fidgets\robot.png" />
+    <Content Include="addons\factoryDesigner\scripts\controllers\factoryController.js" />
+    <Content Include="addons\factoryDesigner\views\fidgets\camera.html" />
+    <Content Include="addons\factoryDesigner\views\fidgets\device.html" />
+    <Content Include="addons\factoryDesigner\views\fidgets\endOfWay.html" />
+    <Content Include="addons\factoryDesigner\views\fidgets\fence.html" />
+    <Content Include="addons\factoryDesigner\views\fidgets\genericObstacle.html" />
+    <Content Include="addons\factoryDesigner\views\fidgets\rectangle.html" />
+    <Content Include="addons\factoryDesigner\views\fidgets\road.html" />
+    <Content Include="addons\fileStorage\fileStorageService.js" />
+    <Content Include="addons\fileStorage\views\help\fileStorage.html" />
+    <Content Include="addons\fileStorage\views\settings\fileStorage.html" />
+    <Content Include="addons\imageBackground\imageBackground.js" />
+    <Content Include="addons\imageBackground\views\properties\imageBackground.html" />
+    <Content Include="addons\messenger\images\fidgets\messenger.png" />
+    <Content Include="addons\messenger\messengerService.js" />
+    <Content Include="addons\messenger\plugin\css\messenger.css" />
+    <Content Include="addons\messenger\plugin\images\contacts.png" />
+    <Content Include="addons\messenger\plugin\images\logo.png" />
+    <Content Include="addons\messenger\plugin\images\operator.png" />
+    <Content Include="addons\messenger\plugin\js\callService.js" />
+    <Content Include="addons\messenger\plugin\js\config.js" />
+    <Content Include="addons\messenger\plugin\js\connectionService.js" />
+    <Content Include="addons\messenger\plugin\js\dialogService.js" />
+    <Content Include="addons\messenger\plugin\js\loginService.js" />
+    <Content Include="addons\messenger\plugin\js\messageService.js" />
+    <Content Include="addons\messenger\plugin\js\messengerController.js" />
+    <Content Include="addons\messenger\plugin\js\quickblox.js" />
+    <Content Include="addons\messenger\plugin\js\usersService.js" />
+    <Content Include="addons\messenger\plugin\views\createDialog.html" />
+    <Content Include="addons\messenger\plugin\views\history.html" />
+    <Content Include="addons\messenger\plugin\views\inCall.html" />
+    <Content Include="addons\messenger\plugin\views\incomingCall.html" />
+    <Content Include="addons\messenger\plugin\views\messenger.html" />
+    <Content Include="addons\messenger\plugin\views\messengerBar.html" />
+    <Content Include="addons\messenger\views\fidgets\messenger.html" />
+    <Content Include="addons\messenger\views\help\messenger.html" />
+    <Content Include="addons\messenger\views\quickCall.html" />
+    <Content Include="addons\messenger\views\settings\messenger.html" />
+    <Content Include="addons\mirrorMode\images\hand.png" />
+    <Content Include="addons\mirrorMode\mirrorMode.js" />
+    <Content Include="addons\mirrorMode\views\help\mirrorMode.html" />
+    <Content Include="addons\mirrorMode\views\settings\mirror.html" />
+    <Content Include="addons\multiUser\images\login.png" />
+    <Content Include="addons\multiUser\scripts\3rdParty\jquery.md5.js" />
+    <Content Include="addons\multiUser\userService.js" />
+    <Content Include="addons\multiUser\views\help\userMode.html" />
+    <Content Include="addons\multiUser\views\loginSwitch.html" />
+    <Content Include="addons\multiUser\views\loginWindow.html" />
+    <Content Include="addons\multiUser\views\settings\userMode.html" />
+    <Content Include="addons\nachiLink\nachiLinkService.js" />
+    <Content Include="addons\nachiLink\views\connectionEditor.html" />
+    <Content Include="addons\nachiLink\views\nachiLinkWindow.html" />
+    <Content Include="addons\nachiLink\views\settings\directConnections.html" />
+    <Content Include="addons\palletizing\images\layer.png" />
+    <Content Include="addons\palletizing\images\overLayer.png" />
+    <Content Include="addons\palletizing\media\palletDemo.mp4" />
+    <Content Include="addons\palletizing\palletizingService.js" />
+    <Content Include="addons\palletizing\scripts\3rdParty\packer.growing.js" />
+    <Content Include="addons\palletizing\scripts\3rdParty\packer.js" />
+    <Content Include="addons\palletizing\styles\palletizing.css" />
+    <Content Include="addons\palletizing\views\addNewRobotWindow.html" />
+    <Content Include="addons\palletizing\views\autoFillSelector.html" />
+    <Content Include="addons\palletizing\views\help\palletizing.html" />
+    <Content Include="addons\palletizing\views\screens\demo.html" />
+    <Content Include="addons\palletizing\views\screens\finalStep.html" />
+    <Content Include="addons\palletizing\views\screens\layerEditor.html" />
+    <Content Include="addons\palletizing\views\screens\palletMonitor.html" />
+    <Content Include="addons\palletizing\views\screens\project.html" />
+    <Content Include="addons\palletizing\views\screens\projects.html" />
+    <Content Include="addons\palletizing\views\screens\Simulate.html" />
+    <Content Include="addons\palletizing\views\selectRobotWindow.html" />
+    <Content Include="addons\palletizing\views\settings\palletizing.html" />
+    <Content Include="addons\qrReader\qrReaderService.js" />
+    <Content Include="addons\remoteView\images\close.png" />
+    <Content Include="addons\remoteView\images\fd11nra.png" />
+    <Content Include="addons\remoteView\images\fidgets\remoteView.png" />
+    <Content Include="addons\remoteView\images\fullscreen.png" />
+    <Content Include="addons\remoteView\images\keyboard.png" />
+    <Content Include="addons\remoteView\images\loading.gif" />
+    <Content Include="addons\remoteView\images\menu.png" />
+    <Content Include="addons\remoteView\images\minimize.png" />
+    <Content Include="addons\remoteView\images\pause.png" />
+    <Content Include="addons\remoteView\images\play.png" />
+    <Content Include="addons\remoteView\remoteViewService.js" />
+    <Content Include="addons\remoteView\scripts\controllers\remoteViewController.js" />
+    <Content Include="addons\remoteView\views\fidgets\remoteView.html" />
+    <Content Include="addons\rosMirrorMode\mirrorMode.js" />
+    <Content Include="addons\rosMirrorMode\views\help\mirrorMode.html" />
+    <Content Include="addons\rosMirrorMode\views\settings\mirror.html" />
+    <Content Include="addons\shortcut\scripts\3rdParty\shortcut.js" />
+    <Content Include="addons\shortcut\shortcutService.js" />
+    <Content Include="addons\templateWizard\views\properties\wizardTemplateButton.html" />
+    <Content Include="addons\templateWizard\views\wizardsWindow.html" />
+    <Content Include="addons\templateWizard\wizardService.js" />
+    <Content Include="addons\themes\styles\themes\hyundai\images\hyundai_bg.jpg" />
+    <Content Include="addons\themes\styles\themes\IBG\images\ibg_bg.jpg" />
+    <Content Include="addons\themes\styles\themes\nachi\images\nachi_bg.jpg" />
+    <Content Include="addons\themes\styles\themes\nortura\fonts\GT-Walsheim-Light.svg" />
+    <Content Include="addons\themes\styles\themes\nortura\images\nortura_bg.jpg" />
+    <Content Include="addons\themes\styles\themes\rainpower\images\rainpower_bg.jpg" />
+    <Content Include="addons\themes\themesService.js" />
+    <Content Include="addons\themes\views\help\themes.html" />
+    <Content Include="addons\themes\views\settings\theme.html" />
+    <Content Include="addons\timers\timerService.js" />
+    <Content Include="addons\timers\views\help\timers.html" />
+    <Content Include="addons\timers\views\settings\timers.html" />
+    <Content Include="addons\timers\views\timerEditorWindow.html" />
+    <Content Include="addons\welding\images\bead.png" />
+    <Content Include="addons\welding\images\selectedBead.png" />
+    <Content Include="addons\welding\images\vgroove.png" />
+    <Content Include="addons\welding\images\welding.png" />
+    <Content Include="addons\welding\images\wpe.png" />
+    <Content Include="addons\welding\media\demo.mp4" />
+    <Content Include="addons\welding\media\weldingDemo.mp4" />
+    <Content Include="addons\welding\styles\welding.css" />
+    <Content Include="addons\welding\views\help\welding.html" />
+    <Content Include="addons\welding\views\screens\weldingMonitor.html" />
+    <Content Include="addons\welding\views\screens\wpe.html" />
+    <Content Include="addons\welding\views\settings\welding.html" />
+    <Content Include="addons\welding\weldingService.js" />
+    <Content Include="app.js" />
+    <Content Include="build\addons\advancedScripting\advancedScripting.js" />
+    <Content Include="build\addons\advancedScripting\scripts\controllers\scriptEditorController.js" />
+    <Content Include="build\addons\easyEditMode\easyEditMode.js" />
+    <Content Include="build\addons\extendedFidgets\extendedFidgets.js" />
+    <Content Include="build\addons\extendedFidgets\scripts\controllers\cameraImageController.js" />
+    <Content Include="build\addons\extendedFidgets\scripts\controllers\shapeController.js" />
+    <Content Include="build\addons\extendedFidgets\scripts\controllers\slamMapController.js" />
+    <Content Include="build\addons\factoryDesigner\factoryDesigner.js" />
+    <Content Include="build\addons\fileStorage\fileStorageService.js" />
+    <Content Include="build\addons\imageBackground\imageBackground.js" />
+    <Content Include="build\addons\mirrorMode\mirrorMode.js" />
+    <Content Include="build\addons\multiUser\userService.js" />
+    <Content Include="build\addons\nachiLink\nachiLinkService.js" />
+    <Content Include="build\addons\palletizing\palletizingService.js" />
+    <Content Include="build\addons\qrReader\qrReaderService.js" />
+    <Content Include="build\addons\remoteView\remoteViewService.js" />
+    <Content Include="build\addons\remoteView\scripts\controllers\remoteViewController.js" />
+    <Content Include="build\addons\shortcut\shortcutService.js" />
+    <Content Include="build\addons\templateWizard\wizardService.js" />
+    <Content Include="build\addons\themes\themesService.js" />
+    <Content Include="build\addons\timers\timerService.js" />
+    <Content Include="build\addons\welding\weldingService.js" />
+    <Content Include="build\FlexGui.min.js" />
+    <Content Include="config.xml" />
+    <Content Include="cordova.js" />
+    <Content Include="CordovaApp.java" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Gruntfile.js" />
+    <Content Include="images\circuit.png" />
+    <Content Include="images\close.png" />
+    <Content Include="images\connect.png" />
+    <Content Include="images\copy.png" />
+    <Content Include="images\cut.png" />
+    <Content Include="images\delete.png" />
+    <Content Include="images\down.png" />
+    <Content Include="images\edit.png" />
+    <Content Include="images\factory.png" />
+    <Content Include="images\fd11nra.png" />
+    <Content Include="images\fidgets\boolean.png" />
+    <Content Include="images\fidgets\button.png" />
+    <Content Include="images\fidgets\checkBox.png" />
+    <Content Include="images\fidgets\dropdown.png" />
+    <Content Include="images\fidgets\fidgetGroup.png" />
+    <Content Include="images\fidgets\gauge.png" />
+    <Content Include="images\fidgets\image.png" />
+    <Content Include="images\fidgets\indicatorLamp.png" />
+    <Content Include="images\fidgets\progressBar.png" />
+    <Content Include="images\fidgets\radioButton.png" />
+    <Content Include="images\fidgets\scrollableText.png" />
+    <Content Include="images\fidgets\slider.png" />
+    <Content Include="images\fidgets\text.png" />
+    <Content Include="images\fidgets\textInput.png" />
+    <Content Include="images\fullscreen.png" />
+    <Content Include="images\help.png" />
+    <Content Include="images\icons.png" />
+    <Content Include="images\image-not-found.png" />
+    <Content Include="images\keyboard.png" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logo_small.png" />
+    <Content Include="images\menu.png" />
+    <Content Include="images\minimize.png" />
+    <Content Include="images\move.png" />
+    <Content Include="images\normalScreen.png" />
+    <Content Include="images\openBelt.png" />
+    <Content Include="images\paste.png" />
+    <Content Include="images\pause.png" />
+    <Content Include="images\play.png" />
+    <Content Include="images\project.png" />
+    <Content Include="images\redo.png" />
+    <Content Include="images\select.png" />
+    <Content Include="images\settings.png" />
+    <Content Include="images\undo.png" />
+    <Content Include="images\unselect.png" />
+    <Content Include="images\up.png" />
+    <Content Include="index.html" />
+    <Content Include="res\icons\android\icon-36-ldpi.png" />
+    <Content Include="res\icons\android\icon-48-mdpi.png" />
+    <Content Include="res\icons\android\icon-72-hdpi.png" />
+    <Content Include="res\icons\android\icon-96-xhdpi.png" />
+    <Content Include="res\icons\ios\icon-40-2x.png" />
+    <Content Include="res\icons\ios\icon-40.png" />
+    <Content Include="res\icons\ios\icon-50-2x.png" />
+    <Content Include="res\icons\ios\icon-50.png" />
+    <Content Include="res\icons\ios\icon-57-2x.png" />
+    <Content Include="res\icons\ios\icon-57.png" />
+    <Content Include="res\icons\ios\icon-60-2x.png" />
+    <Content Include="res\icons\ios\icon-60-3x.png" />
+    <Content Include="res\icons\ios\icon-60.png" />
+    <Content Include="res\icons\ios\icon-72-2x.png" />
+    <Content Include="res\icons\ios\icon-72.png" />
+    <Content Include="res\icons\ios\icon-76-2x.png" />
+    <Content Include="res\icons\ios\icon-76.png" />
+    <Content Include="res\icons\ios\icon-small-2x.png" />
+    <Content Include="res\icons\ios\icon-small.png" />
+    <Content Include="res\icons\windows\Square150x150Logo.scale-100.png" />
+    <Content Include="res\icons\windows\Square150x150Logo.scale-240.png" />
+    <Content Include="res\icons\windows\Square30x30Logo.scale-100.png" />
+    <Content Include="res\icons\windows\Square310x310Logo.scale-100.png" />
+    <Content Include="res\icons\windows\Square44x44Logo.scale-240.png" />
+    <Content Include="res\icons\windows\Square70x70Logo.scale-100.png" />
+    <Content Include="res\icons\windows\Square71x71Logo.scale-240.png" />
+    <Content Include="res\icons\windows\StoreLogo.scale-100.png" />
+    <Content Include="res\icons\windows\StoreLogo.scale-240.png" />
+    <Content Include="res\icons\windows\Wide310x150Logo.scale-100.png" />
+    <Content Include="res\icons\windows\Wide310x150Logo.scale-240.png" />
+    <Content Include="res\icons\wp8\ApplicationIcon.png" />
+    <Content Include="res\icons\wp8\Background.png" />
+    <Content Include="res\screens\android\screen-hdpi-landscape.png" />
+    <Content Include="res\screens\android\screen-hdpi-portrait.png" />
+    <Content Include="res\screens\android\screen-ldpi-landscape.png" />
+    <Content Include="res\screens\android\screen-ldpi-portrait.png" />
+    <Content Include="res\screens\android\screen-mdpi-landscape.png" />
+    <Content Include="res\screens\android\screen-mdpi-portrait.png" />
+    <Content Include="res\screens\android\screen-xhdpi-landscape.png" />
+    <Content Include="res\screens\android\screen-xhdpi-portrait.png" />
+    <Content Include="res\screens\ios\screen-ipad-landscape-2x.png" />
+    <Content Include="res\screens\ios\screen-ipad-landscape.png" />
+    <Content Include="res\screens\ios\screen-ipad-portrait-2x.png" />
+    <Content Include="res\screens\ios\screen-ipad-portrait.png" />
+    <Content Include="res\screens\ios\screen-iphone-568h-2x.png" />
+    <Content Include="res\screens\ios\screen-iphone-landscape-736h.png" />
+    <Content Include="res\screens\ios\screen-iphone-portrait-2x.png" />
+    <Content Include="res\screens\ios\screen-iphone-portrait-667h.png" />
+    <Content Include="res\screens\ios\screen-iphone-portrait-736h.png" />
+    <Content Include="res\screens\ios\screen-iphone-portrait.png" />
+    <Content Include="res\screens\windows\SplashScreen.scale-100.png" />
+    <Content Include="res\screens\windows\SplashScreen.scale-240.png" />
+    <Content Include="res\screens\windows\SplashScreenPhone.scale-240.png" />
+    <Content Include="res\screens\wp8\SplashScreenImage.jpg" />
+    <Content Include="script.js" />
+    <Content Include="scripts\3rdParty\angular-cookies.js" />
+    <Content Include="scripts\3rdParty\angular-mocks.js" />
+    <Content Include="scripts\3rdParty\angular-perfect-scrollbar.js" />
+    <Content Include="scripts\3rdParty\angular-route.min.js" />
+    <Content Include="scripts\3rdParty\angular-sanitize.js" />
+    <Content Include="scripts\3rdParty\angular-ui-router.js" />
+    <Content Include="scripts\3rdParty\angular.hammer.js" />
+    <Content Include="scripts\3rdParty\angular.min.js" />
+    <Content Include="scripts\3rdParty\bootbox.min.js" />
+    <Content Include="scripts\3rdParty\bootstrap-slider.js" />
+    <Content Include="scripts\3rdParty\bootstrap.min.js" />
+    <Content Include="scripts\3rdParty\canvas_resize.js" />
+    <Content Include="scripts\3rdParty\codemirror.js" />
+    <Content Include="scripts\3rdParty\eventemitter2.js" />
+    <Content Include="scripts\3rdParty\hammer.min.js" />
+    <Content Include="scripts\3rdParty\html2canvas.js" />
+    <Content Include="scripts\3rdParty\javascript.js" />
+    <Content Include="scripts\3rdParty\jquery-ui.min.js" />
+    <Content Include="scripts\3rdParty\jquery.knob.js" />
+    <Content Include="scripts\3rdParty\jquery.min.js" />
+    <Content Include="scripts\3rdParty\jquery.nicescroll.min.js" />
+    <Content Include="scripts\3rdParty\jquery.timeago.min.js" />
+    <Content Include="scripts\3rdParty\less.min.js" />
+    <Content Include="scripts\3rdParty\memory-stats.js" />
+    <Content Include="scripts\3rdParty\ng-cordova.js" />
+    <Content Include="scripts\3rdParty\ng-stats.js" />
+    <Content Include="scripts\3rdParty\ocLazyLoad.js" />
+    <Content Include="scripts\3rdParty\perfect-scrollbar.min.js" />
+    <Content Include="scripts\3rdParty\perfect-scrollbar.with-mousewheel.min.js" />
+    <Content Include="scripts\3rdParty\propagating.js" />
+    <Content Include="scripts\3rdParty\roslib.js" />
+    <Content Include="scripts\3rdParty\script.min.js" />
+    <Content Include="scripts\3rdParty\slider.js" />
+    <Content Include="scripts\3rdParty\ui-bootstrap-0.9.0.js" />
+    <Content Include="scripts\3rdParty\ui-codemirror.js" />
+    <Content Include="scripts\angular-knob.js" />
+    <Content Include="scripts\backgroundService.js" />
+    <Content Include="scripts\backupService.js" />
+    <Content Include="scripts\clipboardService.js" />
+    <Content Include="scripts\colorPickerService.js" />
+    <Content Include="scripts\controllers\fidgetController.js" />
+    <Content Include="scripts\controllers\fidgetGroupController.js" />
+    <Content Include="scripts\controllers\flexGuiController.js" />
+    <Content Include="scripts\controllers\propertiesWindowController.js" />
+    <Content Include="scripts\deviceService.js" />
+    <Content Include="scripts\diagnosticsService.js" />
+    <Content Include="scripts\editorService.js" />
+    <Content Include="scripts\enumService.js" />
+    <Content Include="scripts\errorService.js" />
+    <Content Include="scripts\fidgetService.js" />
+    <Content Include="scripts\helpService.js" />
+    <Content Include="scripts\historyService.js" />
+    <Content Include="scripts\iconService.js" />
+    <Content Include="scripts\imageService.js" />
+    <Content Include="scripts\localization\flags\de.GIF" />
+    <Content Include="scripts\localization\flags\en.GIF" />
+    <Content Include="scripts\localization\flags\hu.GIF" />
+    <Content Include="scripts\localization\flags\it.GIF" />
+    <Content Include="scripts\localization\flags\ko.GIF" />
+    <Content Include="scripts\localization\localization.de.js" />
+    <Content Include="scripts\localization\localization.en.js" />
+    <Content Include="scripts\localization\localization.hu.js" />
+    <Content Include="scripts\localization\localization.it.js" />
+    <Content Include="scripts\localization\localization.js" />
+    <Content Include="scripts\localization\localization.ko.js" />
+    <Content Include="scripts\popupService.js" />
+    <Content Include="scripts\projectConversionService.js" />
+    <Content Include="scripts\projectService.js" />
+    <Content Include="scripts\projectStorageService.js" />
+    <Content Include="scripts\projectWindowService.js" />
+    <Content Include="scripts\scriptManagerService.js" />
+    <Content Include="scripts\settingsWindowService.js" />
+    <Content Include="scripts\variableService.js" />
+    <Content Include="settings.json.txt" />
+    <Content Include="styles\3rdParty\awesome-bootstrap-checkbox.css" />
+    <Content Include="styles\3rdParty\bootstrap-slider.css" />
+    <Content Include="styles\3rdParty\bootstrap.min.css" />
+    <Content Include="styles\3rdParty\build.less.css" />
+    <Content Include="styles\3rdParty\codemirror.css" />
+    <Content Include="styles\3rdParty\font-awesome.css" />
+    <Content Include="styles\3rdParty\images\ui-bg_flat_30_cccccc_40x100.png" />
+    <Content Include="styles\3rdParty\images\ui-bg_flat_50_5c5c5c_40x100.png" />
+    <Content Include="styles\3rdParty\images\ui-bg_glass_20_555555_1x400.png" />
+    <Content Include="styles\3rdParty\images\ui-bg_glass_40_0078a3_1x400.png" />
+    <Content Include="styles\3rdParty\images\ui-bg_glass_40_ffc73d_1x400.png" />
+    <Content Include="styles\3rdParty\images\ui-bg_gloss-wave_25_333333_500x100.png" />
+    <Content Include="styles\3rdParty\images\ui-bg_highlight-soft_80_eeeeee_1x100.png" />
+    <Content Include="styles\3rdParty\images\ui-bg_inset-soft_25_000000_1x100.png" />
+    <Content Include="styles\3rdParty\images\ui-bg_inset-soft_30_f58400_1x100.png" />
+    <Content Include="styles\3rdParty\images\ui-icons_222222_256x240.png" />
+    <Content Include="styles\3rdParty\images\ui-icons_4b8e0b_256x240.png" />
+    <Content Include="styles\3rdParty\images\ui-icons_a83300_256x240.png" />
+    <Content Include="styles\3rdParty\images\ui-icons_cccccc_256x240.png" />
+    <Content Include="styles\3rdParty\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="styles\3rdParty\jquery-ui.css" />
+    <Content Include="styles\3rdParty\perfect-scrollbar.min.css" />
+    <Content Include="styles\flexGui.css" />
+    <Content Include="styles\fonts\fontawesome-webfont.svg" />
+    <Content Include="styles\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="styles\images\ui-bg_flat_30_cccccc_40x100.png" />
+    <Content Include="styles\images\ui-bg_flat_50_5c5c5c_40x100.png" />
+    <Content Include="styles\images\ui-bg_glass_20_555555_1x400.png" />
+    <Content Include="styles\images\ui-bg_glass_40_0078a3_1x400.png" />
+    <Content Include="styles\images\ui-bg_glass_40_ffc73d_1x400.png" />
+    <Content Include="styles\images\ui-bg_gloss-wave_25_333333_500x100.png" />
+    <Content Include="styles\images\ui-bg_highlight-soft_80_eeeeee_1x100.png" />
+    <Content Include="styles\images\ui-bg_inset-soft_25_000000_1x100.png" />
+    <Content Include="styles\images\ui-bg_inset-soft_30_f58400_1x100.png" />
+    <Content Include="styles\images\ui-icons_222222_256x240.png" />
+    <Content Include="styles\images\ui-icons_4b8e0b_256x240.png" />
+    <Content Include="styles\images\ui-icons_a83300_256x240.png" />
+    <Content Include="styles\images\ui-icons_cccccc_256x240.png" />
+    <Content Include="styles\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="styles\index.css" />
+    <Content Include="styles\jquery-ui.css" />
+    <Content Include="styles\themes\default\images\bg.jpg" />
+    <Content Include="tests\unit\deviceModelTest.js" />
+    <Content Include="tests\unit\editHandlerTest.js" />
+    <Content Include="tests\unit\historyHandlerTest.js" />
+    <Content Include="tests\unit\howto.txt" />
+    <Content Include="tests\unit\karma.conf.js" />
+    <Content Include="tests\unit\mock.js" />
+    <Content Include="tests\unit\projectModelTest.js" />
+    <Content Include="views\addScreen.html" />
+    <Content Include="views\blockUI.html" />
+    <Content Include="views\colorPicker.html" />
+    <Content Include="views\colorPickerWindow.html" />
+    <Content Include="views\editBelt.html" />
+    <Content Include="views\editSwitch.html" />
+    <Content Include="views\fidgetBelt.html" />
+    <Content Include="views\fidgets\boolean.html" />
+    <Content Include="views\fidgets\button.html" />
+    <Content Include="views\fidgets\checkBox.html" />
+    <Content Include="views\fidgets\default.html" />
+    <Content Include="views\fidgets\dropdown.html" />
+    <Content Include="views\fidgets\fidgetGroup.html" />
+    <Content Include="views\fidgets\fullgauge.html" />
+    <Content Include="views\fidgets\gauge.html" />
+    <Content Include="views\fidgets\image.html" />
+    <Content Include="views\fidgets\indicatorLamp.html" />
+    <Content Include="views\fidgets\jointPositions.html" />
+    <Content Include="views\fidgets\progressBar.html" />
+    <Content Include="views\fidgets\radioButton.html" />
+    <Content Include="views\fidgets\road.html" />
+    <Content Include="views\fidgets\scrollableText.html" />
+    <Content Include="views\fidgets\slider.html" />
+    <Content Include="views\fidgets\text.html" />
+    <Content Include="views\fidgets\textInput.html" />
+    <Content Include="views\helpIcon.html" />
+    <Content Include="views\helpMessage.html" />
+    <Content Include="views\help\cameraImage.html" />
+    <Content Include="views\help\colorPick.html" />
+    <Content Include="views\help\connectionSettings.html" />
+    <Content Include="views\help\diagnostics.html" />
+    <Content Include="views\help\diagnosticsEditor.html" />
+    <Content Include="views\help\enterprise.html" />
+    <Content Include="views\help\fidgetBelt.html" />
+    <Content Include="views\help\fidgetGroup.html" />
+    <Content Include="views\help\generalSettings.html" />
+    <Content Include="views\help\image.html" />
+    <Content Include="views\help\imageExplorer.html" />
+    <Content Include="views\help\initScript.html" />
+    <Content Include="views\help\language.html" />
+    <Content Include="views\help\loginWindow.html" />
+    <Content Include="views\help\nodes.html" />
+    <Content Include="views\help\project.html" />
+    <Content Include="views\help\propertiesWindow.html" />
+    <Content Include="views\help\screenBelt.html" />
+    <Content Include="views\imageExplorerWindow.html" />
+    <Content Include="views\interfaceRepeater.html" />
+    <Content Include="views\modalWindows.html" />
+    <Content Include="views\nodesTab.html" />
+    <Content Include="views\openBelt.html" />
+    <Content Include="views\popupMessage.html" />
+    <Content Include="views\propertiesWindow.html" />
+    <Content Include="views\properties\colorBackground.html" />
+    <Content Include="views\properties\onClick.html" />
+    <Content Include="views\rosLoading.html" />
+    <Content Include="views\rosReconnect.html" />
+    <Content Include="views\screen.html" />
+    <Content Include="views\screenBelt.html" />
+    <Content Include="views\settingsSwitch.html" />
+    <Content Include="views\settingsWindow.html" />
+    <Content Include="views\settings\about.html" />
+    <Content Include="views\settings\backup.html" />
+    <Content Include="views\settings\connection.html" />
+    <Content Include="views\settings\diagnostics.html" />
+    <Content Include="views\settings\diagnostics\result.html" />
+    <Content Include="views\settings\diagnostics\scriptEditor.html" />
+    <Content Include="views\settings\diagnostics\testItemEditor.html" />
+    <Content Include="views\settings\enterprise.html" />
+    <Content Include="views\settings\general.html" />
+    <Content Include="views\settings\init.html" />
+    <Content Include="views\settings\language.html" />
+    <Content Include="views\settings\nodes.html" />
+    <Content Include="views\settings\nodes\header.html" />
+    <Content Include="views\settings\nodes\interface.html" />
+    <Content Include="views\settings\nodes\topicDetails.html" />
+    <Content Include="views\settings\project.html" />
+    <Content Include="views\topicDetailsWindow.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55646</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55646/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

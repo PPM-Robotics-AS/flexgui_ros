@@ -1,0 +1,6 @@
+﻿<div class="editSwitch" ng-click="editHandler.switchEditMode()">
+    <div style="{{editHandler.isEditMode ? 'background-color: rgba(30,30,30, 0.2);' : ''}} background-image: url({{icons.get('images/edit.png')}}), url({{icons.get('images/edit.png', true)}});"
+         ng-class="{'inEditMode': editHandler.isEditMode}">
+        <span>{{::localization.currentLocal.editMode.switchLabel}}</span>
+    </div>
+</div>

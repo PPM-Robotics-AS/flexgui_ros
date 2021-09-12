@@ -1,0 +1,16 @@
+﻿<div style="height:{{size.height}}px; width:{{size.width}}px"
+     ng-controller="shapeCtrl"
+     ng-init="initShapeFidget(fidget)"
+     ng-click="onClick(fidget, $event)">
+
+    <div class="shape" style="height:{{fidget.properties.height}}px; min-width:{{fidget.properties.width}}px; max-width:{{fidget.properties.width}}px; display: table-cell; vertical-align: middle; text-align: center;transform: translate({{-center.x}}px, {{-center.y}}px) rotate({{fidget.properties.angle}}deg)">
+        <div ng-include="shapeHtml">
+
+        </div>
+
+        <div class="title"
+             style="transform: rotate({{fidget.properties.angle % 360 < 270 && fidget.properties.angle % 360 > 90 ? 180 : 0}}deg);"
+             ng-bind-html="fidget.properties.text">
+        </div>
+    </div>
+</div>
