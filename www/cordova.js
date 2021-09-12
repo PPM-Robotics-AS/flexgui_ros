@@ -1,1 +1,0 @@
-﻿//I am a dummy cordova.js
